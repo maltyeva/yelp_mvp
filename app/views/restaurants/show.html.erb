@@ -11,5 +11,13 @@
   <strong>Stars:</strong>
   <%= @restaurant.stars %>
 </p>
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<h4>Reviews</h4>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %></li>
+  <% end %>
+</ul>
+<%= link_to "Add a review" , new_restaurant_review_path(@restaurant)  %>
+| <%= link_to "More about the chef", chef_restaurant_path(@restaurant)  %>
+| <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
